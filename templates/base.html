@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django form</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<section class="navigation-section">
+    <div class="navigation-section-container">
+        <nav CLASS="navigation d-flex justify-content-center mb-4">
+            <a href="{% url 'home' %}"><button class="btn btn-info">Home</button></a>
+            <a href="{% url 'add-product' %}"><button class="btn btn-info">Add products</button></a>
+            <a href=""><button class="btn btn-info">View products</button></a>
+            <a href="{% url 'register' %}"><button class="btn btn-info">Register</button></a>
+            <a href="{% url 'login' %}"><button class="btn btn-info">Login</button></a>
+            <a href="{% url 'logout' %}"><button class="btn btn-info">Logout</button></a>
+        </nav>
+    </div>
+</section>
+{% if messages %}
+    {% for message in messages %}
+        <p class="text-success text-center">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
